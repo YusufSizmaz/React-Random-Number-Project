@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./components/text.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "reactstrap";
+import { Button } from "@mantine/core";
+import { Input } from "@mantine/core";
+
+import { MantineProvider } from "@mantine/core";
+import "@mantine/core/styles.css";
 
 function App() {
   const [minVal, setMinVal] = useState(0);
@@ -12,39 +15,52 @@ function App() {
     setRandomNum(Math.floor(Math.random() * (maxVal - minVal + 1) + minVal));
   };
   return (
-    <div className="hero">
-      <div className="container">
-        <div className="randomNum">
-          <p>
-            Random Number : <span>{randomNum}</span>
-          </p>
-        </div>
+    <MantineProvider>
+      <div className="hero">
+        <div className="container">
+          <div className="randomNum">
+            <p>
+              Random Number : <span>{randomNum}</span>
+            </p>
+          </div>
 
-        <div>
-          <p>Min:</p>
-          <input
-            type="number"
-            value={minVal}
-            onChange={(e) => setMinVal(+e.target.value)}
-          />
-        </div>
+          <div>
+            <p>Minimum :</p>
+            <Input
+              size="md"
+              radius="md"
+              placeholder="Input component"
+              type="number"
+              value={minVal}
+              onChange={(e) => setMinVal(+e.target.value)}
+            />
+          </div>
 
-        <div>
-          <p>Max: </p>
-          <input
-            type="number"
-            value={maxVal}
-            onChange={(e) => setMaxVal(+e.target.value)}
-          />
-        </div>
+          <div>
+            <p>Maximim : </p>
+            <Input
+              size="md"
+              radius="md"
+              type="number"
+              placeholder="Input component"
+              value={maxVal}
+              onChange={(e) => setMaxVal(+e.target.value)}
+            />
+          </div>
 
-        <div>
-          <Button color="success" onClick={giveRandomNumber}>
-            Get Random Number
-          </Button>
+          <div>
+            <Button
+              onClick={giveRandomNumber}
+              variant="gradient"
+              gradient={{ from: "blue", to: "rgba(255, 0, 0, 1)", deg: 90 }}
+              size="lg"
+            >
+              Sayı Üret
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </MantineProvider>
   );
 }
 

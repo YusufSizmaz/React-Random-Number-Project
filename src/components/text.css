@@ -14,7 +14,8 @@ body {
     rgba(34, 193, 195, 1) 0%,
     rgba(253, 187, 45, 1) 100%
   );
-  color: wheat;
+  font-size: 1.5rem;
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,11 +27,11 @@ body {
 
 button {
   width: 13rem;
-  height: 2rem;
+  height: 5rem;
   margin-top: 10px;
   font-size: 20px;
   border-radius: 5px;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 input {
